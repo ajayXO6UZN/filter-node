@@ -16,9 +16,9 @@ app.post("/add_filter", async (request, response) => {
 app.get("/filter", async (request, response) => {
 
     const arr = [
-        {type:"age",data:['40-100','30-40']},
-        {type:"class",data:['5-6']},
-        {type:"name",data:['ajay sahu','chaman sahu']},
+        {type:"age",data:[]},
+        {type:"class",data:[]},
+        {type:"name",data:[]},
     ]
 
     const newarr = [];
@@ -39,7 +39,7 @@ app.get("/filter", async (request, response) => {
     //console.log(newarr,"newarr")
 
     const users = await filterModel.find({
-        $and:newarr
+        $and:newarr?.length >0 && newarr || [{}]
     });
   
     try {
