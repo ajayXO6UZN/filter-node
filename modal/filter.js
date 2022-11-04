@@ -17,7 +17,7 @@ const FilterSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-});
+},{timestamps:true});
 
 const Filter = mongoose.model("Filter", FilterSchema);
 
